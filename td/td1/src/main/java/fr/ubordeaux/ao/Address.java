@@ -2,6 +2,7 @@ package fr.ubordeaux.ao;
 
 import java.util.Objects;
 
+/**La classe est muable */
 public class Address {
     private int number;
     private String street;
@@ -13,20 +14,20 @@ public class Address {
         this.town = town;
     }
 
-    public int getNumber() {
+    public int getNumber() { //ne change pas
         return number;
     }
 
-    public String getStreet() {
+    public String getStreet() { //ne change pas
         return street;
     }
 
-    public Town getTown() {
+    public Town getTown() { //ne change pas
         return town;
     }
 
     @Override
-    public boolean equals(Object other) {
+    public boolean equals(Object other) { // depend
         if (! (other instanceof Address)) return false;
         Address otherAddress = (Address) other;
         boolean sameNumber = this.number == otherAddress.getNumber();
@@ -36,12 +37,12 @@ public class Address {
     }
 
     @Override
-    public int hashCode() {
+    public int hashCode() { //depend
         return Objects.hash(number, street, town);
     }
 
     @Override
-    public String toString() {
+    public String toString() { // ne change pas
         return number+" "+street+" "+town.toString();
     }
 
