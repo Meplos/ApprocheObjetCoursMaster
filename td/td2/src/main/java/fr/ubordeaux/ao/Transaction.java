@@ -1,25 +1,29 @@
 package fr.ubordeaux.ao;
 
-public class Transaction {
-    private String date;
-    private String title;
-    private double amount;
+import java.util.Date;
 
-    public Transaction(String title, double amount) {
+public class Transaction {
+    private Date date;
+    private String title;
+    private final IntPos amount;
+
+    public Transaction(String title, int amount) {
         //Affecter la date à aujourd'hui
         this.title = title;
-        this.amount = amount;
+        this.amount = new IntPos(amount);
+        this.date = new Date(System.currentTimeMillis());
     }
 
     public String getDate() {
         //TODO_2
+        return this.date.toString();
     }
 
     public String getTitle() {
-        //TODO_2
+        return this.title;
     }
 
-    public double getAmount() {
-        //TODO_2
+    public int getAmount() {
+        return this.amount.value();
     }
 }
