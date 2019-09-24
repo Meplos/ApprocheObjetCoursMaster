@@ -3,7 +3,6 @@ package fr.ubordeaux.ao;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.HashSet;
-import java.util.List;
 
 public class SVG {
     private int width;
