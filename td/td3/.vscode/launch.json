@@ -1,0 +1,11 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - ColorPoint2DExtends",
+            "request": "launch",
+            "mainClass": "fr.ubordeaux.ao.ColorPoint2DExtends",
+            "projectName": "td3_9815a12d"
+        }
+    ]
+}
