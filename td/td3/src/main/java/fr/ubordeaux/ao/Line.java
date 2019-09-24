@@ -1,8 +1,14 @@
 package fr.ubordeaux.ao;
 
-public class Line {
-    int x1;
-    int y1;
-    int x2;
-    int y2;
+public class Line implements Shape.toSVG{
+    private Point2D source;
+    private Point2D target;
+    public Line(Point2D source, Point2D target) {
+        this.source = source;
+        this.target = target;
+    }
+
+    public String toSVG(){
+        return "";
+    }
 }
