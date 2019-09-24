@@ -5,4 +5,8 @@ public class Rectangle {
     int y;
     int width;
     int height;
+
+    public Rectangle() {
+        
+    }
 }
