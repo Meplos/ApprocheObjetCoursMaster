@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - App",
+            "request": "launch",
+            "mainClass": "fr.ubordeaux.ao.App",
+            "projectName": "td3"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - ColorPoint2DExtends",
             "request": "launch",
             "mainClass": "fr.ubordeaux.ao.ColorPoint2DExtends",

@@ -1,5 +1,7 @@
 package fr.ubordeaux.ao;
 
-interface Shape {
-    String toSVG();
+public abstract class  Shape {
+
+    
+    public abstract String toSVG();
 }
