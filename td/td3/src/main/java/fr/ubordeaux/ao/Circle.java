@@ -7,7 +7,7 @@ public class Circle extends Ellipse{
     }
 
     public String toSVG(){
-        return "<circle cx=\""+this.center.getX()+"\" cy=\""+this.center.getY()+"\" r=\""+this.getRadiusX()+"\"/>";
+        return "<circle cx=\""+this.center.getX()+"\" cy=\""+this.center.getY()+"\" r=\""+this.radiusX+"\"/>";
     }
     
     

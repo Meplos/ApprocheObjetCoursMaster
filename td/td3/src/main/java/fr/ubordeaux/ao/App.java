@@ -9,7 +9,7 @@ import java.io.IOException;
 
 public class App extends JFrame {
     /**
-     *
+     * TODO: Print svg file in window
      */
     private static final long serialVersionUID = 1L;
 
@@ -34,10 +34,10 @@ public class App extends JFrame {
         svg.add(e);
         svg.add(l);
         svg.add(r);
+        //TODO: avoid try catch statement
         try {
             svg.save("test.svg");
         } catch (IOException e1) {
-            // TODO Auto-generated catch block
             e1.printStackTrace();
         }
         JTextArea text = new JTextArea(r.toSVG());
