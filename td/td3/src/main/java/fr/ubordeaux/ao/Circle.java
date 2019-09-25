@@ -2,8 +2,8 @@ package fr.ubordeaux.ao;
 
 public class Circle extends Ellipse{
 
-    public Circle(Point2D center, int radius) {
-        super(center, radius, radius);
+    public Circle(Point2D center, int radius,Style style) {
+        super(center, radius, radius, style);
     }
 
     public String toSVG(){

@@ -27,9 +27,9 @@ public class App extends JFrame {
     public static void main(String[] args) {
         JFrame window = new App();
         JPanel panel = new JPanel();
-        Line l = new Line(new Point2D(500, 500), new Point2D(800, 800));
-        Ellipse e = new Circle(new Point2D(150, 200), 100);
-        Rectangle r = new Rectangle(new Point2D(300, 400), 20, 30);
+        Line l = new Line(new Point2D(500, 500), new Point2D(800, 800),new Style("red", 5, "white"));
+        Ellipse e = new Circle(new Point2D(150, 200), 100, new Style("red", 5, "blue"));
+        Rectangle r = new Rectangle(new Point2D(300, 400), 20, 30, new Style("green", 5, "yellow"));
         SVG svg = new SVG(800, 900);
         svg.add(e);
         svg.add(l);

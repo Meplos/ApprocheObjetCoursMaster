@@ -5,13 +5,16 @@ public class Rectangle extends Shape {
     int width;
     int height;
 
-    public Rectangle(Point2D o, int width, int height) {
+    public Rectangle(Point2D o, int width, int height, Style style) {
+        super(style);
         this.o = o;
         this.width = width;
         this.height = height;
     }
 
     public String toSVG(){
-        return "<rect x=\""+this.o.getX()+"\" y=\""+this.o.getY()+"\" width=\""+this.width+"\" height=\""+this.height+"\"/>";
+        return "<rect x=\""+this.o.getX()+"\" y=\""+this.o.getY()
+            +"\" width=\""+this.width
+            +"\" height=\""+this.height+"\" "+this.style+"/>";
     }
 }
