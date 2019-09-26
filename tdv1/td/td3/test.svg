@@ -1,0 +1,1 @@
+<?xml version="1.0" standalone="no"?> <svg width="800" height="900" xmlns="http://www.w3.org/2000/svg"><line x1="500" y1="500" x2="800" y2="800" style="stroke:red; stroke_width:20; fill:white"/><rect x="50" y="320" width="200" height="300" style="stroke:green; stroke_width:5; fill:yellow"/><circle cx="150" cy="200" r="100" style="stroke:red; stroke_width:5; fill:blue"/></svg>
