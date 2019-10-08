@@ -10,8 +10,13 @@ public class Price {
     }
 
     private void setPrice(int valueInEuroCents) {
-        if (valueInEuroCents < 0) throw new ReferenceManagementException("prices are in Euro Cents, and therefore must be positive");
-        this.valueInEuroCents = valueInEuroCents;
+        if (valueInEuroCents < 0) {
+            throw new
+                ReferenceManagementException(
+                    "prices are in Euro Cents, and therefore must be positive"
+                    );
+        }
+       this.valueInEuroCents = valueInEuroCents;
     }
 
     public int getPrice() {
@@ -20,8 +25,10 @@ public class Price {
 
     @Override
     public boolean equals(Object other) {
-        if (! (other instanceof Price)) return false;
-        return this.valueInEuroCents == ((Price)other).valueInEuroCents;
+        if (!(other instanceof Price)) {
+            return false;
+        }
+        return this.valueInEuroCents == ((Price) other).valueInEuroCents;
     }
 
     @Override
