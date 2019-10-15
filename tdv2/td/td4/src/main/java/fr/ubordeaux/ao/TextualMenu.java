@@ -4,8 +4,10 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.io.PrintStream;
 import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
 
 public class TextualMenu {
     private BufferedReader in;
@@ -19,8 +21,17 @@ public class TextualMenu {
     }
 
     protected TextualMenu(InputStream in, PrintStream out) {
-        this.in = new BufferedReader(new InputStreamReader(in));
-        this.out = new PrintWriter(out, true);
+        InputStreamReader inputStreamReader;
+        OutputStreamWriter writer;
+        try {
+            inputStreamReader = new InputStreamReader(in, "UTF-8");
+            writer = new OutputStreamWriter(out, "UTF-8");
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+            throw new RuntimeException();
+        }
+        this.in = new BufferedReader(inputStreamReader);
+        this.out = new PrintWriter(writer, true);
         initCollection();
     }
 
@@ -34,11 +45,16 @@ public class TextualMenu {
             out.println("(1) Add new Reference to Catalog,  (2) exit");
             out.println("Your choice 1-2:");
             String choice = in.readLine();
+            if (choice == null) {
+                throw new RuntimeException();
+            }
             switch (choice) {
                 case "1" : createReferenceAndAddItToCatalog();
                             break;
                 case "2" : end = true;
+                    break;
                 default :
+                    break;
             }
         }
     }
@@ -51,13 +67,29 @@ public class TextualMenu {
             "Reference id (any string, must be unique) : "
         );
         String refId = in.readLine();
+        if (refId == null) {
+            throw new RuntimeException();
+        }
         out.println("Reference name : ");
+
         String refName = in.readLine();
+        if (refName == null) {
+            throw new RuntimeException();
+        }
         out.println("Reference description : ");
+
         String refDescription = in.readLine();
+        if (refDescription == null) {
+            throw new RuntimeException();
+        }
+
         out.println("Price : ");
         String price = in.readLine();
+        if (price == null) {
+            throw new RuntimeException();
+        }
         Price refPrice = new Price(Integer.parseInt(price));
+
         Reference reference =
             new Reference(refId,
                 refName,

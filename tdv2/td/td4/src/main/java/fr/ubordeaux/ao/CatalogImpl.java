@@ -9,16 +9,16 @@ public class CatalogImpl implements Catalog {
     private Map<String, Reference> references;
 
     public CatalogImpl() {
-        Map<String, Reference> references = new HashMap<String, Reference>();
+       this.references = new HashMap<String, Reference>();
     }
 
     public int size() {
-        return references.size();
+        return this.references.size();
     }
 
     public Set<Reference> getReferences() {
         Set<Reference> result = new HashSet<Reference>();
-        result.addAll(references.values());
+        result.addAll(this.references.values());
         return result;
     }
 
@@ -29,14 +29,17 @@ public class CatalogImpl implements Catalog {
                     "cannot find Reference, id unknown !"
                 );
         }
-        return references.get(id);
+        return this.references.get(id);
     }
 
     public void addReference(Reference reference) {
-        references.put(reference.getId(), reference);
+        if (reference == null) {
+            throw new RuntimeException();
+        }
+        this.references.put(reference.getId(), reference);
     }
 
     public void removeReference(Reference reference) {
-        references.remove(reference.getId());
+        this.references.remove(reference.getId());
     }
 }
