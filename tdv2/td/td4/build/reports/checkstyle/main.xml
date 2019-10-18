@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<checkstyle version="7.6.1">
+<file name="C:\Users\Alexandre Erard\Documents\fac\master\m1\ApprocheObjetCoursMaster\tdv2\td\td4\src\main\java\fr\ubordeaux\ao\Catalog.java">
+</file>
+<file name="C:\Users\Alexandre Erard\Documents\fac\master\m1\ApprocheObjetCoursMaster\tdv2\td\td4\src\main\java\fr\ubordeaux\ao\CatalogImpl.java">
+</file>
+<file name="C:\Users\Alexandre Erard\Documents\fac\master\m1\ApprocheObjetCoursMaster\tdv2\td\td4\src\main\java\fr\ubordeaux\ao\CommandLine.java">
+</file>
+<file name="C:\Users\Alexandre Erard\Documents\fac\master\m1\ApprocheObjetCoursMaster\tdv2\td\td4\src\main\java\fr\ubordeaux\ao\Price.java">
+</file>
+<file name="C:\Users\Alexandre Erard\Documents\fac\master\m1\ApprocheObjetCoursMaster\tdv2\td\td4\src\main\java\fr\ubordeaux\ao\Reference.java">
+</file>
+<file name="C:\Users\Alexandre Erard\Documents\fac\master\m1\ApprocheObjetCoursMaster\tdv2\td\td4\src\main\java\fr\ubordeaux\ao\ReferenceManagementException.java">
+</file>
+<file name="C:\Users\Alexandre Erard\Documents\fac\master\m1\ApprocheObjetCoursMaster\tdv2\td\td4\src\main\java\fr\ubordeaux\ao\TextualMenu.java">
+</file>
+</checkstyle>

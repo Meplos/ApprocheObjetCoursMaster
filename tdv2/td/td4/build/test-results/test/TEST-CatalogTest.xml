@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="CatalogTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2019-10-15T17:05:54" hostname="DESKTOP-E0S0NKI" time="0.005">
+  <properties/>
+  <testcase name="nameControlTest" classname="CatalogTest" time="0.005"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -6,10 +6,12 @@ import java.util.Map;
 import java.util.Set;
 
 public class CatalogImpl implements Catalog {
+    private String name;
     private Map<String, Reference> references;
 
-    public CatalogImpl() {
+    public CatalogImpl(String name) {
        this.references = new HashMap<String, Reference>();
+       this.name = name;
     }
 
     public int size() {
@@ -41,5 +43,13 @@ public class CatalogImpl implements Catalog {
 
     public void removeReference(Reference reference) {
         this.references.remove(reference.getId());
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }

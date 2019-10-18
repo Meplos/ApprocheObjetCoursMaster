@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<checkstyle version="7.6.1">
+<file name="C:\Users\Alexandre Erard\Documents\fac\master\m1\ApprocheObjetCoursMaster\tdv2\td\td4\src\test\java\CatalogTest.java">
+<error line="0" severity="error" message="Il manque un caractère NewLine à la fin du fichier" source="com.puppycrawl.tools.checkstyle.checks.NewlineAtEndOfFileCheck"/>
+<error line="5" severity="error" message="L&apos;utilisation des import.* est prohibé - org.junit.Assert.*." source="com.puppycrawl.tools.checkstyle.checks.imports.AvoidStarImportCheck"/>
+<error line="9" column="33" severity="error" message="Il y a un espace de trop avant &apos;(&apos;." source="com.puppycrawl.tools.checkstyle.checks.whitespace.MethodParamPadCheck"/>
+</file>
+</checkstyle>
