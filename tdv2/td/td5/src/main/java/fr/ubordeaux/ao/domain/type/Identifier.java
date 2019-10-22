@@ -2,10 +2,9 @@ package fr.ubordeaux.ao.domain.type;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import java.lang.RuntimeException;
 
 public class Identifier{
-     final String value;
+     public final String value;
 
     public Identifier(String value) {
         Pattern pattern = Pattern.compile("[a-zA-Z0-9]*{20}");
@@ -43,7 +42,12 @@ public class Identifier{
         return true;
     }
 
-    
+    @Override
+    public String toString() {
+        return "Identifier [" + value + "]";
+    }
+
+        
 
 
 }

@@ -1,11 +1,9 @@
 package fr.ubordeaux.ao.domain.type;
 
-import java.lang.RuntimeException;
+public class PosInt {
+    public final int value;
 
-public class Price {
-    final int value;
-
-    public Price(int value) {
+    public PosInt(int value) {
         if(value >= 0) {
             this.value = value;
         } else {
@@ -29,10 +27,15 @@ public class Price {
             return false;
         if (getClass() != obj.getClass())
             return false;
-        Price other = (Price) obj;
+        PosInt other = (PosInt) obj;
         if (value != other.value)
             return false;
         return true;
+    }
+
+    @Override
+    public String toString() {
+        return "PosInt [" + value + "]";
     }
 
     

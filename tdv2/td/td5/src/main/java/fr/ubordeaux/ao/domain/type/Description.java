@@ -1,10 +1,8 @@
 package fr.ubordeaux.ao.domain.type;
 
-import java.lang.RuntimeException;
-
 public class Description {
 
-    final String value;
+    public final String value;
 
     public Description(String value) {
         if(value.length() <= 200){
@@ -39,7 +37,12 @@ public class Description {
         return true;
     }
 
-    
+    @Override
+    public String toString() {
+        return "Description [" + value + "]";
+    }
 
+    
+    
     
 }

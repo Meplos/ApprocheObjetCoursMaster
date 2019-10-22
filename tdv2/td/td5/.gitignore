@@ -1,13 +1,5 @@
-.settings/
-release.properties
-.project
-.classpath
-build/
-gradle/
-bin/
-gradlew.bat
-gradlew
-.vscode/
-.gradle/
-classes/fr/
-svg.html
+# Ignore Gradle project-specific cache directory
+.gradle
+
+# Ignore Gradle build output directory
+build

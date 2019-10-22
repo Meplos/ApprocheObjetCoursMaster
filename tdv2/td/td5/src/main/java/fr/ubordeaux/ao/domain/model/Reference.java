@@ -1,6 +1,6 @@
 package fr.ubordeaux.ao.domain.model;
 
-import fr.ubordeaux.ao.domain.type;
+import fr.ubordeaux.ao.domain.type.*;
 
 public class Reference {
 
@@ -28,8 +28,19 @@ public class Reference {
         return description;
     }
 
-    public Price getPrice() {
+    public PosInt getPrice() {
         return price;
+    }
+
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((description == null) ? 0 : description.hashCode());
+        result = prime * result + ((name == null) ? 0 : name.hashCode());
+        result = prime * result + ((price == null) ? 0 : price.hashCode());
+        result = prime * result + ((ref == null) ? 0 : ref.hashCode());
+        return result;
     }
 
     @Override
@@ -40,15 +51,17 @@ public class Reference {
             return false;
         if (getClass() != obj.getClass())
             return false;
-        Reference ref = (Reference) obj;
-        return this.ref.equals(obj.ref); 
+        Reference other = (Reference) obj;
+        if (!ref.equals(other.ref))
+            return false;
+        return true;
     }
 
     @Override
-    public int hashCode() {
-        // TODO Auto-generated method stub
-        return super.hashCode();
+    public String toString() {
+        return "Reference [description=" + description + ", name=" + name + ", price=" + price + ", ref=" + ref + "]";
     }
 
-    
+ 
+        
 }

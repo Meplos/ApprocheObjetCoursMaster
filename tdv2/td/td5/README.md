@@ -17,11 +17,11 @@ Dans ce TD vous allez développer le catalogue de références ainsi que la gest
 
 La couche model contient les concepts métiers suivants:
 
-Reference : Une référence produit 
+Reference : Une référence produit
 * ref: le numéro unique de la référence (une chaîne de caractères constituée de 20 caractères alphanumérique)
 * nom: le nom court de la référence (20 caractères au max)
 * description: la description de la référence (200 caratères au max)
-* prix (entier positif) 
+* prix (entier positif)
 
 On considère qu'aucune propriété de la référence ne change avec le temps. le prix d'une référence ne change pas. C'est le prix de base. Plusieurs promotions pourront être faites sur le panier lors de la commande mais le prix d'une référence ne change pas.
 
@@ -38,4 +38,3 @@ Basket : le panier electronique
 * On peut valider un panier (il n'est alors plus possible de le modifier)
 
 Codez ces concepts en précisant leur pattern tactique du DDD.
-
