@@ -59,7 +59,7 @@ public class Reference {
 
     @Override
     public String toString() {
-        return "Reference [description=" + description + ", name=" + name + ", price=" + price + ", ref=" + ref + "]";
+        return name.toString();
     }
 
  

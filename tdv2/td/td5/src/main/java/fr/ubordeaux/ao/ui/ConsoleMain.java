@@ -1,48 +1,29 @@
 package fr.ubordeaux.ao.ui;
 
+import java.util.Scanner;
 import java.util.Set;
 
-import fr.ubordeaux.ao.domain.model.Basket;
-import fr.ubordeaux.ao.domain.model.CommandLine;
-import fr.ubordeaux.ao.domain.model.Reference;
-import fr.ubordeaux.ao.domain.type.Description;
-import fr.ubordeaux.ao.domain.type.Identifier;
-import fr.ubordeaux.ao.domain.type.Name;
-import fr.ubordeaux.ao.domain.type.PosInt;
+import fr.ubordeaux.ao.application.BasketService;
+import fr.ubordeaux.ao.domain.model.*;
+import fr.ubordeaux.ao.domain.type.*;
+
 
 public class ConsoleMain {
 
+   
     public static void main(String[] args) {
-        Basket basket = new Basket();
-        Reference ref1 = new Reference(new Identifier("872504qiouzhjfjijomM"),
-         new Name("Balaie"), 
-         new Description("Outils qui sert a faire le menage"),
-         new PosInt(5));
-
-
-        Reference ref2 = new Reference(new Identifier("872504qi486hjfjijomM"),
-         new Name("Chocolat"), 
-         new Description("Nourriture"),
-         new PosInt(2));
-
-        Reference ref3 = new Reference(new Identifier("872AZDqiouzhjfjijomM"),
-         new Name("Aspirateur"), 
-         new Description("Outils qui sert a faire le menage"),
-         new PosInt(150));
-         
-        basket.addOrder(ref1, new PosInt(1));
-        basket.addOrder(ref2, new PosInt(50));
-        basket.addOrder(ref3, new PosInt(1));
-        basket.removeOrder(ref1);
-
-        basket.validate();
-
-        Set<CommandLine> list = basket.getAll();
-
-        for (CommandLine commandLine : list) {
-            System.out.println(commandLine+"\n");
+        BasketService basketService = new BasketService();
+        Catalog ctl = new Catalog();
+        basketService.order(ctl.get(1),1);
+        for( CommandLine c : basketService.getCommandFromBasket()){
+            System.out.println(c);
         }
     }
 
+    static void printCatalog(Catalog ctl) {
+       for (int i = 0; i < ctl.size(); i++) {
+           System.out.println(i+") "+ctl.get(i).toString());
+       }
+    }
 
 }
