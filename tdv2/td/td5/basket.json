@@ -1,0 +1,15 @@
+{
+    "basket": [{
+        "ref": "AOE2",
+        "quantity": 1,
+        "price": 20,
+        "name": "Age Of Empire II",
+        "description": "Best RTS ever"
+    }, {
+        "ref": "cy2077",
+        "quantity": 1,
+        "price": 60,
+        "name": "Cyberpunk 2077",
+        "description": "Best Game ever"
+    }]
+}
