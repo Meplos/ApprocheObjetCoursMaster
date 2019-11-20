@@ -44,7 +44,7 @@ public class Identifier{
 
     @Override
     public String toString() {
-        return "Identifier [" + value + "]";
+        return value;
     }
 
         

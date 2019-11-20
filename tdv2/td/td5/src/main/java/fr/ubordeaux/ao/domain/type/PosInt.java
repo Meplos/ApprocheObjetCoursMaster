@@ -35,7 +35,7 @@ public class PosInt {
 
     @Override
     public String toString() {
-        return "PosInt [" + value + "]";
+        return Integer.toString(value);
     }
 
     

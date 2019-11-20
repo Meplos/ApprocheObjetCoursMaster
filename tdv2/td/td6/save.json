@@ -1,0 +1,13 @@
+{
+    "references": [{
+        "id": "qjmeofjq",
+        "name": "Petit antoine",
+        "description": "Jeune bordelais, joueur de league of legends et passionée de warhammer",
+        "basePrice": "50"
+    }, {
+        "id": "qiozejf",
+        "name": "Zahra",
+        "description": "Jeune aventurière du fin fond de l'autralie, elle chasse l'emeue pour prendre sa revanche et sauver l'honneur de son pays",
+        "basePrice": "45"
+    }]
+}

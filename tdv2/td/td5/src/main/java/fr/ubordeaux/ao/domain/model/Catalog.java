@@ -42,7 +42,20 @@ public class Catalog {
         return refs.size();
     }
 
-    public Reference get(int i) {
-        return refs.get(i);
+    public Reference findBy(Identifier Id) {
+        for (Reference reference : refs) {
+            if(reference.getRef().equals(Id)){
+                return reference;
+            }
+        }
+        throw new RuntimeException("Reference Not Found");
+    }
+
+    public Set<Reference> getAll(){
+        Set<Reference> references = new HashSet<>();
+        for (Reference current : refs) {
+            references.add(current);
+        }
+        return references;
     }
 }

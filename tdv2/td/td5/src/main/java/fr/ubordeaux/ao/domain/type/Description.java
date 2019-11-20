@@ -39,7 +39,7 @@ public class Description {
 
     @Override
     public String toString() {
-        return "Description [" + value + "]";
+        return value;
     }
 
     
