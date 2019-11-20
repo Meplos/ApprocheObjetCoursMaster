@@ -22,7 +22,6 @@ public class ConsoleMain {
             System.out.println(c);
         }
 
-        basketService.save();
     }
 
 

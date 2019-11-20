@@ -1,6 +1,9 @@
 package fr.ubordeaux.ao.application;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
+import java.util.concurrent.ThreadPoolExecutor;
 
 import fr.ubordeaux.ao.domain.DTO.BasketDTO;
 import fr.ubordeaux.ao.domain.model.*;
@@ -12,9 +15,23 @@ public class BasketService {
     
     private Basket basket;
     private BasketRepository repo;
+
+    BasketCommandQueue queue;
+
+    private List<Thread> pool;
+
     public BasketService(){
         basket = new Basket();
         repo = new JsonBasketRepository();
+        queue = BasketCommandQueue.getInstance();
+        
+        pool = new ArrayList<>();
+        pool.add(new BasketWorker());
+        pool.add(new BasketWorker());
+
+        pool.forEach(c -> c.start());
+
+
     }
 
     public Set<CommandLine> getCommandFromBasket(){
@@ -23,9 +40,8 @@ public class BasketService {
 
     public void order(Reference r, int quantity){
         basket.addOrder(r, new PosInt(quantity));
-    }
-
-    public void save(){
+        BasketCommand cmd = new BasketCommand(new BasketDTO(basket), repo);
+        queue.add(cmd);
         repo.save(new BasketDTO(basket));
     }
 
