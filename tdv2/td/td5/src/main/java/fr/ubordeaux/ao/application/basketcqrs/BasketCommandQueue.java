@@ -1,4 +1,4 @@
-package fr.ubordeaux.ao.application;
+package fr.ubordeaux.ao.application.basketcqrs;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -30,5 +30,5 @@ dependencies {
 
 application {
     // Define the main class for the application
-    mainClassName = 'fr.ubordeaux.ao.ui.ConsoleMain'
+    mainClassName = 'fr.ubordeaux.ao.application.App'
 }

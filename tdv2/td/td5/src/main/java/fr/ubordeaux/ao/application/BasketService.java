@@ -3,12 +3,18 @@ package fr.ubordeaux.ao.application;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
-import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
+import fr.ubordeaux.ao.application.basketcqrs.BasketCommand;
+import fr.ubordeaux.ao.application.basketcqrs.BasketCommandQueue;
+import fr.ubordeaux.ao.application.basketcqrs.BasketWorker;
 import fr.ubordeaux.ao.domain.DTO.BasketDTO;
-import fr.ubordeaux.ao.domain.model.*;
+import fr.ubordeaux.ao.domain.model.Basket;
+import fr.ubordeaux.ao.domain.model.CommandLine;
+import fr.ubordeaux.ao.domain.model.Reference;
 import fr.ubordeaux.ao.domain.repository.BasketRepository;
-import fr.ubordeaux.ao.domain.type.*;
+import fr.ubordeaux.ao.domain.type.PosInt;
 import fr.ubordeaux.ao.infra.inmemory.JsonBasketRepository;
 
 public class BasketService {
@@ -16,21 +22,23 @@ public class BasketService {
     private Basket basket;
     private BasketRepository repo;
 
-    BasketCommandQueue queue;
+    private BasketCommandQueue queue;
 
-    private List<Thread> pool;
+    public final int NWORKER = 2;
+
+    private ExecutorService executor;
 
     public BasketService(){
         repo = new JsonBasketRepository();
         queue = BasketCommandQueue.getInstance();
         load();
         
-        pool = new ArrayList<>();
-        pool.add(new BasketWorker());
-        pool.add(new BasketWorker());
-
-        pool.forEach(c -> c.start());
-
+        executor = Executors.newFixedThreadPool(NWORKER);
+        for (int i = 0; i < 2; i++) {
+            Runnable worker = new BasketWorker(i);
+            executor.execute(worker);
+        
+        }
 
     }
 
@@ -50,5 +58,10 @@ public class BasketService {
             basket = repo.load();
     }
 
+    public void stop(){
+        System.out.println("All thread shutdown.."); // Wait executor finnished
+        executor.shutdown();
+        while(!executor.isTerminated());
+    }
 
 }

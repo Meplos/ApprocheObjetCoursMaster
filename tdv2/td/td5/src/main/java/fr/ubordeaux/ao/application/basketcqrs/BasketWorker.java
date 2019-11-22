@@ -1,23 +1,25 @@
-package fr.ubordeaux.ao.application;
+package fr.ubordeaux.ao.application.basketcqrs;
 
-import java.util.concurrent.Semaphore;
+public class BasketWorker implements Runnable {
 
-public class BasketWorker extends Thread {
-
-    BasketCommandQueue queue = BasketCommandQueue.getInstance();
-    
-    public BasketWorker(){
+    private BasketCommandQueue queue = BasketCommandQueue.getInstance();
+    private int id;
+    public BasketWorker(int num){
         super();
+        id = num;
+
     }
+
     
     @Override
     public void run() {
         while (true) {
+            System.out.println("["+id+"]");
             try {
                 queue.available.acquire();
                 if (queue.getSize() <= 0) {
                     queue.available.release();
-                    continue;
+                    return;
                 }
                 queue.getLast().exec();
                 queue.available.release();
@@ -26,9 +28,8 @@ public class BasketWorker extends Thread {
                 e.printStackTrace();
             }
            
-            
-
         }
     }
+
 
 }
