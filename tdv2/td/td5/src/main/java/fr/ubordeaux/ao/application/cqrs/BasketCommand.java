@@ -1,9 +1,9 @@
-package fr.ubordeaux.ao.application.basketcqrs;
+package fr.ubordeaux.ao.application.cqrs;
 
 import fr.ubordeaux.ao.domain.DTO.BasketDTO;
 import fr.ubordeaux.ao.domain.repository.BasketRepository;
 
-public class BasketCommand{
+public class BasketCommand implements Command{
     private BasketDTO basket;
     private BasketRepository repo;
 
@@ -12,6 +12,7 @@ public class BasketCommand{
         this.repo = repo;
     }
 
+    @Override
     public void exec(){
         repo.save(basket);
     }

@@ -24,7 +24,7 @@ import org.json.*;
 
 public class JsonBasketRepository implements BasketRepository {
 
-    private String BASKET_SAVE_FILE = "basket.json";
+    private final String BASKET_SAVE_FILE = "basket.json";
 
     public JsonBasketRepository() {
     }

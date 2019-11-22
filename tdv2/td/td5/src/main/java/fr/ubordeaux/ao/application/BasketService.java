@@ -1,14 +1,12 @@
 package fr.ubordeaux.ao.application;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Set;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-import fr.ubordeaux.ao.application.basketcqrs.BasketCommand;
-import fr.ubordeaux.ao.application.basketcqrs.BasketCommandQueue;
-import fr.ubordeaux.ao.application.basketcqrs.BasketWorker;
+import fr.ubordeaux.ao.application.cqrs.BasketCommand;
+import fr.ubordeaux.ao.application.cqrs.CommandQueue;
+import fr.ubordeaux.ao.application.cqrs.Worker;
 import fr.ubordeaux.ao.domain.DTO.BasketDTO;
 import fr.ubordeaux.ao.domain.model.Basket;
 import fr.ubordeaux.ao.domain.model.CommandLine;
@@ -22,7 +20,7 @@ public class BasketService {
     private Basket basket;
     private BasketRepository repo;
 
-    private BasketCommandQueue queue;
+    private CommandQueue queue;
 
     public final int NWORKER = 2;
 
@@ -30,12 +28,12 @@ public class BasketService {
 
     public BasketService(){
         repo = new JsonBasketRepository();
-        queue = BasketCommandQueue.getInstance();
+        queue = CommandQueue.getInstance();
         load();
         
         executor = Executors.newFixedThreadPool(NWORKER);
         for (int i = 0; i < 2; i++) {
-            Runnable worker = new BasketWorker(i);
+            Runnable worker = new Worker(i);
             executor.execute(worker);
         
         }

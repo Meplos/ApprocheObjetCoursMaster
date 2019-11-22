@@ -1,10 +1,10 @@
-package fr.ubordeaux.ao.application.basketcqrs;
+package fr.ubordeaux.ao.application.cqrs;
 
-public class BasketWorker implements Runnable {
+public class Worker implements Runnable {
 
-    private BasketCommandQueue queue = BasketCommandQueue.getInstance();
+    private CommandQueue queue = CommandQueue.getInstance();
     private int id;
-    public BasketWorker(int num){
+    public Worker(int num){
         super();
         id = num;
 

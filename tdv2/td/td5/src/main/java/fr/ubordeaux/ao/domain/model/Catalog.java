@@ -58,4 +58,8 @@ public class Catalog {
         }
         return references;
     }
+
+    public void add(Reference r){
+        refs.add(r);
+    }
 }

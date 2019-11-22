@@ -37,3 +37,13 @@ tdv2/td/td5/bin/main/fr/ubordeaux/ao/domain/type/Identifier.class
 tdv2/td/td5/bin/main/fr/ubordeaux/ao/domain/type/Name.class
 tdv2/td/td5/bin/main/fr/ubordeaux/ao/domain/type/PosInt.class
 tdv2/td/td5/bin/main/fr/ubordeaux/ao/ui/ConsoleMain.class
+tdv2/td/td5/bin/main/fr/ubordeaux/ao/application/BasketService.class
+tdv2/td/td5/bin/main/fr/ubordeaux/ao/domain/model/Basket.class
+tdv2/td/td5/bin/main/fr/ubordeaux/ao/domain/model/Catalog.class
+tdv2/td/td5/bin/main/fr/ubordeaux/ao/domain/model/CommandLine.class
+tdv2/td/td5/bin/main/fr/ubordeaux/ao/domain/model/Reference.class
+tdv2/td/td5/bin/main/fr/ubordeaux/ao/domain/type/Description.class
+tdv2/td/td5/bin/main/fr/ubordeaux/ao/domain/type/Identifier.class
+tdv2/td/td5/bin/main/fr/ubordeaux/ao/domain/type/Name.class
+tdv2/td/td5/bin/main/fr/ubordeaux/ao/domain/type/PosInt.class
+tdv2/td/td5/bin/main/fr/ubordeaux/ao/ui/ConsoleMain.class
