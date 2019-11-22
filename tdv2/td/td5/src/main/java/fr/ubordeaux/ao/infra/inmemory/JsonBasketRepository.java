@@ -1,13 +1,23 @@
 package fr.ubordeaux.ao.infra.inmemory;
 
 import fr.ubordeaux.ao.domain.DTO.BasketDTO;
+import fr.ubordeaux.ao.domain.model.Basket;
+import fr.ubordeaux.ao.domain.model.CommandLine;
 import fr.ubordeaux.ao.domain.model.Reference;
 import fr.ubordeaux.ao.domain.repository.BasketRepository;
+import fr.ubordeaux.ao.domain.type.Description;
+import fr.ubordeaux.ao.domain.type.Identifier;
+import fr.ubordeaux.ao.domain.type.Name;
 import fr.ubordeaux.ao.domain.type.PosInt;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
 
 import org.json.*;
@@ -45,9 +55,29 @@ public class JsonBasketRepository implements BasketRepository {
     }
 
     @Override
-    public void load() {
-        // TODO Auto-generated method stub
-
+    public Basket load() {
+        try {
+            JSONTokener tokener = new JSONTokener(new FileInputStream(BASKET_SAVE_FILE));
+            JSONObject json = new JSONObject(tokener);
+            JSONArray array = json.getJSONArray("basket");
+            Iterator<Object> it = array.iterator();
+            Basket basket = new Basket();
+            while(it.hasNext()) {
+                JSONObject curr = (JSONObject) it.next();
+                System.out.println(curr.toString());
+                Identifier id = new Identifier(curr.getString("ref"));
+                Name name = new Name(curr.getString("name"));
+                Description description = new Description("Description");
+                PosInt price = new PosInt(curr.getInt("price"));
+                PosInt quantity = new PosInt(curr.getInt("quantity"));
+                basket.addOrder(new Reference(id, name, description, price), quantity);            
+            }
+            return basket;
+        } catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+        return new Basket();
     }
 
 }

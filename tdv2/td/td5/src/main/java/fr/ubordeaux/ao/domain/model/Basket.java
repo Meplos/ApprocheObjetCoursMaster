@@ -69,6 +69,7 @@ public class Basket {
         return "Basket [isValidate=" + isValidate + ", order=" + order + ", total=" + total + "]";
     }
 
+    
 
     
 }

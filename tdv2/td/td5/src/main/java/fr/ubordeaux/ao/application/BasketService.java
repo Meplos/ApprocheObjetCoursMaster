@@ -21,9 +21,9 @@ public class BasketService {
     private List<Thread> pool;
 
     public BasketService(){
-        basket = new Basket();
         repo = new JsonBasketRepository();
         queue = BasketCommandQueue.getInstance();
+        load();
         
         pool = new ArrayList<>();
         pool.add(new BasketWorker());
@@ -43,6 +43,11 @@ public class BasketService {
         BasketCommand cmd = new BasketCommand(new BasketDTO(basket), repo);
         queue.add(cmd);
         repo.save(new BasketDTO(basket));
+    }
+
+    public void load(){
+        if(basket == null)
+            basket = repo.load();
     }
 
 
